@@ -7,14 +7,21 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String title;
     private String author;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_publisher_id")
+    private Publisher publisher;
+
     @ManyToOne
     private BookCategory bookCategory;
+
+    @ManyToOne
+    private Author bookAuthor;
 
     public Book() {
     }
@@ -22,6 +29,22 @@ public class Book {
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public BookCategory getBookCategory() {
+        return bookCategory;
+    }
+
+    public void setBookCategory(BookCategory bookCategory) {
+        this.bookCategory = bookCategory;
     }
 
     public int getId() {
