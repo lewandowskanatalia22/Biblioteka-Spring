@@ -2,6 +2,7 @@ package com.sda.springstarter.demo.model;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "wydawca")
@@ -13,13 +14,13 @@ public class Publisher {
     private String name;
     private String address;
 
-    @OneToOne(mappedBy = "publisher")
-    private Book book;
+    @OneToMany(mappedBy = "publisher")
+    private Set<Book> book;
 
-    public Publisher(String name, String address, Book book) {
+    public Publisher(String name, String address) {
         this.name = name;
         this.address = address;
-        this.book = book;
+
     }
 
     public Publisher() {
@@ -49,7 +50,4 @@ public class Publisher {
         this.address = address;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
-    }
 }

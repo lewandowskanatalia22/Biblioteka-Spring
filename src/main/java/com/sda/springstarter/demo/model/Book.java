@@ -13,7 +13,7 @@ public class Book {
     private String title;
     private String author;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "book_publisher_id")
     private Publisher publisher;
 
@@ -26,12 +26,9 @@ public class Book {
     public Book() {
     }
 
-    public Book(String title, String author, Publisher publisher, BookCategory bookCategory, Author bookAuthor) {
+    public Book(String title, String author) {
         this.title = title;
         this.author = author;
-        this.publisher = publisher;
-        this.bookCategory = bookCategory;
-        this.bookAuthor = bookAuthor;
     }
 
     public int getId() {
