@@ -26,25 +26,12 @@ public class Book {
     public Book() {
     }
 
-    public Book(String title, String author) {
+    public Book(String title, String author, Publisher publisher, BookCategory bookCategory, Author bookAuthor) {
         this.title = title;
         this.author = author;
-    }
-
-    public Publisher getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
-    }
-
-    public BookCategory getBookCategory() {
-        return bookCategory;
-    }
-
-    public void setBookCategory(BookCategory bookCategory) {
         this.bookCategory = bookCategory;
+        this.bookAuthor = bookAuthor;
     }
 
     public int getId() {
@@ -69,5 +56,29 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public BookCategory getBookCategory() {
+        return bookCategory;
+    }
+
+    public void setBookCategory(BookCategory bookCategory) {
+        this.bookCategory = bookCategory;
+    }
+
+    public Author getBookAuthor() {
+        return bookAuthor;
+    }
+
+    public void setBookAuthor(Author bookAuthor) {
+        this.bookAuthor = bookAuthor;
     }
 }

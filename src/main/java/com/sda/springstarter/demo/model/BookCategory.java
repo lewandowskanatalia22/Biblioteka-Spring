@@ -33,19 +33,16 @@ public class BookCategory {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Set<Book> getBooks() {
-        return books;
     }
 
     public void setBooks(Set<Book> books) {
         this.books = books;
     }
+
+    public String getName() {
+        return name;
+    }
+
 }
