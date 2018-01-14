@@ -2,7 +2,10 @@ package com.sda.springstarter.demo.controller;
 
 import com.sda.springstarter.demo.model.Book;
 import com.sda.springstarter.demo.service.BookServiceImpl;
+import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,9 +23,11 @@ public class BookRestController {
         return bookService.getAllBooks();
     }
 
-    @GetMapping(value ="bookById/{id}")
-    public Book  getBookById(@PathVariable int id){
-      return  bookService.getBookById(id);
+    @GetMapping(value ="{id}")
+    public ResponseEntity<Book> getBookById(@PathVariable int id){
+      return  ResponseEntity
+              .status(HttpStatus.OK)
+              .body(bookService.getBookById(id));
     }
 
 }
