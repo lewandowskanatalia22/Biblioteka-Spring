@@ -1,6 +1,8 @@
 package com.sda.springstarter.demo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -9,9 +11,19 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
+
+    @NotNull
+    @Size(min=2, max=30)
     private String name;
+
+    @NotNull
+    @Size(min=2, max=60)
     private String lastname;
+
+    @NotNull
+    @Size(min=2, max=30)
     private String address;
 
     @OneToMany(mappedBy = "bookAuthor", cascade = CascadeType.ALL)

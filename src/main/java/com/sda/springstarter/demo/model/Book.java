@@ -1,6 +1,8 @@
 package com.sda.springstarter.demo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "ksiazki")
@@ -8,9 +10,15 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
 
+    @NotNull
+    @Size(min=2, max=30)
     private String title;
+
+
+    @Size(min=2, max=30)
     private String author;
 
     @ManyToOne

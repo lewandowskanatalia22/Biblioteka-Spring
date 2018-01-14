@@ -2,6 +2,8 @@ package com.sda.springstarter.demo.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -10,8 +12,13 @@ public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
+
+    @NotNull
+    @Size(min=2, max=30)
     private String name;
+
     private String address;
 
     @OneToMany(mappedBy = "publisher")
