@@ -9,4 +9,6 @@ public interface AuthorService {
 
     List<Author> getAllAuthor();
     void saveAuthor(Author author);
+
+    public Author getAuthorById(int id);
 }
