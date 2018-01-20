@@ -35,11 +35,11 @@ public class DemoApplication implements CommandLineRunner{
 //
 //		bookService.saveBook(book1);
 //		bookService.saveBook(book2);
-		Author author =authorRepository.findById(1);
-				Book book = new Book();
-		book.setTitle("Jawa dla zaawansowanych");
-		book.setBookAuthor(author);
-
-		bookService.saveBook(book);
+//		Author author =authorRepository.findById(1);
+//				Book book = new Book();
+//		book.setTitle("Jawa dla zaawansowanych");
+//		book.setBookAuthor(author);
+//
+//		bookService.saveBook(book);
 	}
 }

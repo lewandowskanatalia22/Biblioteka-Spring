@@ -13,8 +13,8 @@ public class BookCategory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @NotNull
-    @Size(min=2, max=30)
+//    @NotNull
+//    @Size(min=2, max=30)
     private String name;
 
     @OneToMany(mappedBy = "bookCategory", cascade = CascadeType.ALL)

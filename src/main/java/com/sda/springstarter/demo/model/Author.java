@@ -14,16 +14,16 @@ public class Author {
 
     private int id;
 
-    @NotNull
-    @Size(min=2, max=30)
+//    @NotNull
+//    @Size(min=2, max=30)
     private String name;
 
-    @NotNull
-    @Size(min=2, max=60)
+   // @NotNull
+   // @Size(min=2, max=60)
     private String lastname;
 
-    @NotNull
-    @Size(min=2, max=30)
+//    @NotNull
+//    @Size(min=2, max=30)
     private String address;
 
     @OneToMany(mappedBy = "bookAuthor", cascade = CascadeType.ALL)

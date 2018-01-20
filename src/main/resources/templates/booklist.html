@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <h1>Lista ksiazek!!!</h1>
+
+    <table>
+        <tr>
+            <th width="100">  Tytul ksiazki  </th>
+            <th width="100">  Autor  </th>
+            <th width="100">  Wydawnictwo  </th>
+
+        </tr>
+
+        <tr th:each="book : ${books}">
+            <td th:text="${book.getTitle()}"></td>
+            <td th:text="${book.getBookAuthor().getName()}"></td>
+            <td th:text="${book.getBookCategory().getName()}"></td>
+
+        </tr>
+
+    </table>
+
+        <h1> Dodaj książki </h1>
+        <form action="#" th:action="@{/addbook}" th:object="${book}" method="post">
+            <p>Nazwa książki : <input type="text" th:field="*{title}" /></p>
+            <p>Autor : <input type="text" th:field="*{bookAuthor.name}" /></p>
+            <label> Podaj Kategorie</label>
+            <select th:field="*{bookCategory.id}">
+                <option th:each="bp: ${bookCategory}"
+                        th:value="${bp.getId()}"
+                        th:text="${bp.getName()}"></option>
+            </select>
+
+
+
+        <label> Podaj Wydawnictwo </label>
+        <select >
+            <option th:each="pub :${publisher}"
+                    th:value="${pub.getId()}"
+                    th:text="${pub.getName()}"></option>
+        </select>
+            <p>
+                <input th:type="submit" th:value="Submit"/>
+                <input th:type="reset" th:value="Reset"/>
+
+            </p>
+
+    </form>
+</div>
+</body>
+</html>

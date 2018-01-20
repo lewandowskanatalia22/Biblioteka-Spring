@@ -13,12 +13,12 @@ public class Book {
 
     private int id;
 
-    @NotNull
-    @Size(min=2, max=30)
+//    @NotNull
+//    @Size(min=2, max=30)
     private String title;
 
 
-    @Size(min=2, max=30)
+//    @Size(min=2, max=30)
     private String author;
 
     @ManyToOne
@@ -28,7 +28,7 @@ public class Book {
     @ManyToOne
     private BookCategory bookCategory;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Author bookAuthor;
 
     public Book() {
